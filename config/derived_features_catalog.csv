@@ -1,0 +1,17 @@
+feature_id,entity_level,definition,input_data,frequency,use_cases,validation_notes
+RET_1M,instrument_id,Monthly total-return proxy over 1 month,Adjusted close or total-return series,Monthly,Momentum / performance,Use adjusted data; validate dividends/corporate actions
+RET_3M,instrument_id,Monthly total-return proxy over 3 months,Adjusted close or total-return series,Monthly,3–6 month trend,Do not confuse past return with expected return
+RET_6M,instrument_id,Monthly total-return proxy over 6 months,Adjusted close or total-return series,Monthly,Medium-term momentum,"Use as candidate feature, not standalone trade rule"
+VOL_3M,instrument_id,Annualised volatility from daily returns over 3 months,Adjusted daily returns,Daily refreshed / monthly signal,Risk and sizing,Use minimum observation checks
+DRAWDOWN_1Y,instrument_id,Peak-to-trough drawdown over trailing year,Adjusted price/total return,Daily,Risk / dislocation,Define peak window and recovery convention
+ZSCORE_5Y,series or instrument,Current level relative to trailing 5Y mean/std,Validated historical series,Daily/monthly,Anomaly screen,Use robust alternatives and ensure sufficient history
+CPI_YOY,macro series,100*(CPI_t/CPI_t-12 - 1),CPIAUCSL / CPILFESL / PCEPI,Monthly,Inflation theme,Use correct vintage for backtests; check index frequency
+CPI_3M_ANN,macro series,Annualised 3-month change,Seasonally adjusted CPI index,Monthly,Inflation momentum,Sensitive to seasonal effects and noise
+CURVE_10Y_3M,macro series,10Y minus 3M Treasury yield,DGS10 and DGS3MO or T10Y3M,Daily,Curve / recession,"Use T10Y3M directly or calculate once, not both"
+REAL_YIELD_CHANGE_3M,macro series,Change in 10Y real yield over 3 months,DFII10,Daily,Gold / duration / equity duration,Specify basis points vs percentage points
+CREDIT_OAS_Z,macro series,Trailing z-score of credit OAS,BAMLC0A0CM / BAMLH0A0HYM2,Daily,Credit stress,Document sample window and mean/std
+FX_RET_3M,instrument/FX,3-month FX return with quote direction defined,DEXUSEU etc or Yahoo FX series,Daily/monthly,FX divergence,Normalise quote convention before calculating
+REL_STRENGTH_3M,instrument pair,3-month return difference vs benchmark,Adjusted return series,Monthly,Sector/regional rotation,Align calendars/currencies
+MACRO_BETA_5Y,instrument,Rolling regression beta to macro surprise/changes,Monthly returns + macro features,Monthly,Sensitivity mapping,Avoid contemporaneous leakage; account for overlapping horizons
+EVENT_RETURN,instrument/event,Return over defined event window,Prices + publication timestamps,Event-driven,Catalyst analysis,Define event timestamp and price window in advance
+SURPRISE_PROXY,macro series,Actual release vs consensus where licensed/available; otherwise change vs prior/expectation proxy,Official release + consensus source if available,Release-driven,Macro surprise,Do not label change vs prior as a true consensus surprise
