@@ -475,8 +475,15 @@ def infer_asset_class(instrument_type):
     return "Other / review"
 
 
+# Increment this token whenever the dashboard's data-loading schema or bundled
+# analytical snapshots change. Streamlit otherwise may reuse a cached V7 payload
+# because cached_load_data's function body and output_dir argument are unchanged.
+DATA_CACHE_VERSION = "v9.1-regime-theme-evidence"
+
 @st.cache_data(show_spinner=False)
-def cached_load_data(output_dir_str: str) -> dict:
+def cached_load_data(output_dir_str: str, cache_version: str) -> dict:
+    # cache_version is intentionally part of the cache key; load_data reads files
+    # outside this function, which Streamlit does not automatically fingerprint.
     return load_data(Path(output_dir_str))
 
 
@@ -496,7 +503,7 @@ if out_dir is None:
     st.stop()
 
 try:
-    data = cached_load_data(str(out_dir))
+    data = cached_load_data(str(out_dir), DATA_CACHE_VERSION)
 except Exception as exc:
     st.error(f"Could not load dashboard data: {exc}")
     st.stop()
