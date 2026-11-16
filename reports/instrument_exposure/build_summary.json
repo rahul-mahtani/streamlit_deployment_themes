@@ -1,0 +1,58 @@
+{
+  "instrument_master_count": 56,
+  "integrated_panel_rows": 47698,
+  "parquet_written": false,
+  "macro_regression_rows": 47488,
+  "macro_regression_instruments": 56,
+  "fama_french_rows": 210,
+  "fama_french_instruments": 30,
+  "reviewed_theme_instrument_links": 75,
+  "themes_with_instrument_links": 12,
+  "macro_signal_theme_links": 15,
+  "mapping_instrument_ids_not_in_master": [],
+  "macro_regression_instrument_ids_not_in_master": [],
+  "fama_french_instrument_ids_not_in_master": [],
+  "mapping_instruments_without_macro_regressions": [],
+  "mapping_instruments_without_fama_french": [
+    "BROAD_COMMODITIES",
+    "COPPER",
+    "EURUSD",
+    "GBPUSD",
+    "GOLD",
+    "GOLD_ALT",
+    "NATURAL_GAS",
+    "OIL",
+    "UCITS_ALL_WORLD",
+    "UCITS_WORLD",
+    "UK_GILTS_UCITS",
+    "UK_GOLD_ETC",
+    "UK_INFL_LINKED_UCITS",
+    "USDJPY",
+    "USDX_PROXY",
+    "UST_1_3Y",
+    "UST_20Y_PLUS",
+    "UST_7_10Y",
+    "US_HY_CREDIT",
+    "US_REITS",
+    "US_TIPS"
+  ],
+  "macro_regression_status_counts": {
+    "success": 34272,
+    "skipped_insufficient_history": 13216
+  },
+  "macro_regression_model_family_counts": {
+    "A": 11872,
+    "B": 11872,
+    "C": 11872,
+    "D": 11872
+  },
+  "mapping_status_counts": {
+    "candidate_proxy": 75
+  },
+  "mapping_evidence_status_counts": {
+    "structural_exposure_not_validated": 75
+  },
+  "factor_note": "Fama-French loadings are equity-style factor controls, not macro sensitivities; US factors are not equally interpretable for non-US/global instruments.",
+  "macro_note": "Macro regression predictive alignment uses assumed release lags rather than historical publication calendars/vintages; contemporaneous estimates are associations, not causal effects.",
+  "regime_note": "Regime-conditioned performance is a separate realised-outcome layer; this panel reports only instrument coverage counts and does not combine conditional returns with regression coefficients."
+}

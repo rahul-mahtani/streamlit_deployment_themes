@@ -1,0 +1,29 @@
+{
+  "themes": 12,
+  "theme_instrument_links": 75,
+  "macro_aggregate_rows": 29680,
+  "factor_aggregate_rows": 203,
+  "macro_signal_theme_links": 15,
+  "theme_regime_performance_rows_retained": 528,
+  "scope_definitions": {
+    "primary_only": [
+      "primary"
+    ],
+    "primary_plus_secondary": [
+      "primary",
+      "secondary"
+    ],
+    "context_only": [
+      "context"
+    ],
+    "alternative_only": [
+      "alternative"
+    ]
+  },
+  "parquet_written": {
+    "theme_macro_exposure_aggregation": false,
+    "theme_factor_exposure_aggregation": false,
+    "theme_evidence_profile": false
+  },
+  "methodology": "Equal-weight descriptive cross-instrument summaries within explicit mapping-role scopes; no portfolio weighting, no p-value averaging, no causal inference, and no merging of realised regime performance with regression estimates."
+}
